@@ -9,5 +9,8 @@ import { ProductComponent } from './../../components/product/product.component'
   styleUrl: './list.component.css'
 })
 export class ListComponent {
-
+  formChild(event: String){
+    console.log("Estamos en el padre");
+    console.log(event);
+  }
 }
