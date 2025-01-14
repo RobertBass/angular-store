@@ -1,8 +1,7 @@
 import { Component, Input, SimpleChanges, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Product } from '../../models/product.model';
-//import { CartService } from '../../services/cart.service';
 import { RouterLinkWithHref, RouterLinkActive } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -13,10 +12,9 @@ import { RouterLinkWithHref, RouterLinkActive } from '@angular/router';
 })
 export class HeaderComponent {
   hideSideMenu = signal(true);
-  @Input({required: true}) cart: Product[] = [];
-  //private cartService = inject(CartService);
-  //cart = this.cartService.cart;
-  //total = this.cartService.total;
+  private cartService = inject(CartService);
+  cart = this.cartService.cart;
+  total = this.cartService.total;
 
   toogleSideMenu() {
     this.hideSideMenu.update(prevState => !prevState);

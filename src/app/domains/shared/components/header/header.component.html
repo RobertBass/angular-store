@@ -45,7 +45,7 @@
     <div class="flex items-center">
       <button class="p-2 border rounded relative" (click)="toogleSideMenu()">
         <div class="absolute -top-2 -left-5 rounded h-6 w-7 bg-black text-white font-bold text-sm">
-          {{ cart.length }}
+          {{ cart().length }}
         </div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -89,16 +89,7 @@ class="fixed border-l-4 top-0 right-0 bg-red z-40 w-72 h-screen p-4 overflow-y-a
     </svg>
   </button>
 </div>
-<div *ngFor="let product of cart">
-  <div class="grid-flow-col grid-cols-3">
-    <img class="h-20 w-20" [src]="product.image" [alt]="product.title">
-    <p class="grid-flow-col">{{ product.title }}</p>
-    <p class="grid-flow-col">{{ product.price }}</p>
-  </div>
-
-</div>
-
-<!--<div class="pt-4 flex flex-col">
+<div class="pt-4 flex flex-col">
   @for (product of cart(); track product) {
 <div class="flex justify-between items-center space-y-2">
     <div class="flex space-x-2 items-center">
@@ -111,5 +102,5 @@ class="fixed border-l-4 top-0 right-0 bg-red z-40 w-72 h-screen p-4 overflow-y-a
   <div>
     <p>Total: {{ total() }}</p>
   </div>
-</div>-->
+</div>
 </div>
